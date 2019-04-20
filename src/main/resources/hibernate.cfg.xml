@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- Настройки подключения к БД -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+
+        <property name="connection.url">jdbc:mysql://vladimir7.beget.tech/vladimir7_chess?serverTimezone=UTC</property>
+<!--            <property name="connection.datasource">vladimir7_chess</property>&ndash;&gt;-->
+        <property name="connection.username">vladimir7_chess</property>
+        <property name="connection.password">chess_match</property>
+
+        <!-- Автоматическое обновления -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <!-- SQL диалект -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!-- JDBC connection pool (use the built-in) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- Enable Hibernate's automatic session context management -->
+        <property name="current_session_context_class">thread</property>
+
+        <!-- Вывод в консоль SQL-запросов -->
+        <property name="show_sql">true</property>
+
+        <mapping class="entitys_from_db.ArbiterEntity"/>
+        <mapping class="entitys_from_db.CategoryEntity"/>
+        <mapping class="entitys_from_db.CoeffEntity"/>
+        <mapping class="entitys_from_db.CountryEntity"/>
+        <mapping class="entitys_from_db.DebutEntity"/>
+        <mapping class="entitys_from_db.EcoEntity"/>
+        <mapping class="entitys_from_db.EndgameEntity"/>
+        <mapping class="entitys_from_db.GameEntity"/>
+        <mapping class="entitys_from_db.HumanEntity"/>
+        <mapping class="entitys_from_db.ListArbiterEntity"/>
+        <mapping class="entitys_from_db.PlayerEntity"/>
+        <mapping class="entitys_from_db.PostEntity"/>
+        <mapping class="entitys_from_db.RegimeEntity"/>
+        <mapping class="entitys_from_db.ResultEntity"/>
+        <mapping class="entitys_from_db.StringListPlayerEntity"/>
+        <mapping class="entitys_from_db.SubjectEntity"/>
+        <mapping class="entitys_from_db.SystemEntity"/>
+        <mapping class="entitys_from_db.TimeControlEntity"/>
+        <mapping class="entitys_from_db.TitleEntity"/>
+        <mapping class="entitys_from_db.TitleWorldEntity"/>
+        <mapping class="entitys_from_db.TourEntity"/>
+        <mapping class="entitys_from_db.TournamentEntity"/>
+        <mapping class="entitys_from_db.TypeCompetitionEntity"/>
+        <mapping class="entitys_from_db.ViewCompetitionEntity"/>
+
+    </session-factory>
+</hibernate-configuration>
