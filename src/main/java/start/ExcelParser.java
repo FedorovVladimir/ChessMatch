@@ -20,6 +20,10 @@ public class ExcelParser {
         FileInputStream fileXls = new FileInputStream("C:\\Users\\Mikhail\\IdeaProjects\\ChessMatch\\src\\main\\resources\\excel\\test.xls");
         workbook = new HSSFWorkbook(fileXls);
         getSheet(workbook, 0);
+
+        fileXls = new FileInputStream("C:\\Users\\Mikhail\\IdeaProjects\\ChessMatch\\src\\main\\resources\\excel\\Итоговая таблица.xls");
+        workbook = new HSSFWorkbook(fileXls);
+        getSheet(workbook, 0);
     }
 
     public static void  createSheet(Workbook workbook, String nameSheet){
