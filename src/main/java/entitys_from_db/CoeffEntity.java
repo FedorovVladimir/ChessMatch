@@ -3,7 +3,7 @@ package entitys_from_db;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "COEFF", schema = "vladimir7_chess")
+@Table(name = "COEFF", schema = "vladimir7_chess", catalog = "")
 public class CoeffEntity {
     private int pkCoeff;
     private String codeCoeff;

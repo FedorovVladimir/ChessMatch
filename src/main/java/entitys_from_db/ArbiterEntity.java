@@ -3,7 +3,7 @@ package entitys_from_db;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "ARBITER", schema = "vladimir7_chess")
+@Table(name = "ARBITER", schema = "vladimir7_chess", catalog = "")
 public class ArbiterEntity {
     private int pkArbiter;
     private int pkCategory;

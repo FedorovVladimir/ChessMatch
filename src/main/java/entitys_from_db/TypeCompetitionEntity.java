@@ -3,7 +3,7 @@ package entitys_from_db;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "TYPE_COMPETITION", schema = "vladimir7_chess")
+@Table(name = "TYPE_COMPETITION", schema = "vladimir7_chess", catalog = "")
 public class TypeCompetitionEntity {
     private int pkTypeCompetition;
     private String codeTypeCompetition;

@@ -3,7 +3,7 @@ package entitys_from_db;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "SUBJECT", schema = "vladimir7_chess")
+@Table(name = "SUBJECT", schema = "vladimir7_chess", catalog = "")
 @IdClass(SubjectEntityPK.class)
 public class SubjectEntity {
     private int pkSubject;
