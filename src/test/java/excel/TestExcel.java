@@ -12,7 +12,7 @@ import java.io.IOException;
 public class TestExcel {
     public static int sheetNumber = 0;
     public static ExcelParser excelParser = new ExcelParser();
-    public static Workbook workbookEmpty = new HSSFWorkbook();
+    public static Workbook workbookNew = new HSSFWorkbook();
     public static FileInputStream fileXls;
 
     static {
@@ -53,6 +53,11 @@ public class TestExcel {
 
     @Test
     public void createEmptySheet() throws IOException {
-        excelParser.createEmptySheet(workbookEmpty, "list");
+        workbookNew = excelParser.createEmptySheet(workbookNew, "list1");
+    }
+
+    @Test
+    public void createHeaderSheet() throws Exception {
+       workbookNew = excelParser.createHeader(workbookNew);
     }
 }

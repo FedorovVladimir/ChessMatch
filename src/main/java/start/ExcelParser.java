@@ -107,8 +107,36 @@ public class ExcelParser {
         }
     }
 
-    public void createEmptySheet(Workbook workbook, String name) throws IOException {
+    public Workbook createEmptySheet(Workbook workbook, String name) throws IOException {
         Sheet sheet = workbook.createSheet(name);
+        FileOutputStream file = new FileOutputStream("C:\\Users\\Mikhail\\IdeaProjects\\ChessMatch\\src\\main\\resources\\excel\\table.xls");
+        workbook.write(file);
+        file.close();
+        return workbook;
+    }
+
+    public Workbook createHeader(Workbook workbookNew) throws Exception {
+        Sheet sheet = workbookNew.getSheetAt(sheetNumber);
+        for (int i = 0; i < 4; i++) {
+            Row rowNew = sheet.createRow(i);
+            for (int j = 0; j < 15; j++) {
+                if (i == 0 && j == 0) {
+                    Cell cellNew = rowNew.createCell(j);
+                    cellNew.setCellValue(dataBase.getMatch(1).getNameTour());
+                }
+                if (i == 2 && j == 0){
+                    Cell cellNew = rowNew.createCell(j);
+                    cellNew.setCellValue(dataBase.getMatch(1).getCity());
+                }
+            }
+        }
+        addMerged(sheet, 0,0, 0, 15);
+        addMerged(sheet, 2,2, 0, 2);
+        writeFile(workbookNew);
+        return workbookNew;
+    }
+
+    public void writeFile(Workbook workbook) throws IOException {
         FileOutputStream file = new FileOutputStream("C:\\Users\\Mikhail\\IdeaProjects\\ChessMatch\\src\\main\\resources\\excel\\table.xls");
         workbook.write(file);
         file.close();
