@@ -26,5 +26,10 @@ public class EmptyDataBase implements DataBase {
     public List<Match> getMatches() {
         return players;
     }
+
+    @Override
+    public void add(Match match) {
+        players.add(match);
+    }
 }
 

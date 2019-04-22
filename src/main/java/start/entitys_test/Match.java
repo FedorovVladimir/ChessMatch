@@ -18,6 +18,25 @@ public class Match {
     private String total;
     private String coeff;
 
+    public Match(long id, String этап_кубка_россии, String барнаул, String s, String s1, String s2, String fm, String ефанов_михаил, String s3, String кмс, String s4, String s5, String алтайский_край, String s6, String s7, String s8) {
+        this.id = id;
+        this.nameTour = этап_кубка_россии;
+        this.city = барнаул;
+        this.date = s;
+        this.place = s1;
+        this.numberStart = s2;
+        this.title = fm;
+        this.fio = ефанов_михаил;
+        this.dateBorn = s3;
+        this.razr = кмс;
+        this.raitingRus = s4;
+        this.raitingFide = s5;
+        this.subject = алтайский_край;
+        this.idFide = s6;
+        this.total = s7;
+        this.coeff = s8;
+    }
+
     public Long getId() {
         return id;
     }
