@@ -12,6 +12,7 @@ import java.io.IOException;
 public class TestExcel {
     public static int sheetNumber = 0;
     public static ExcelParser excelParser = new ExcelParser();
+    public static Workbook workbookEmpty = new HSSFWorkbook();
     public static FileInputStream fileXls;
 
     static {
@@ -36,11 +37,13 @@ public class TestExcel {
     public void testCreateExcelParser(){
         ExcelParser excelParser = new ExcelParser();
     }
+
     @Test
     public void openExcelFile() throws IOException {
         FileInputStream fileXls = new FileInputStream("C:\\Users\\Mikhail\\IdeaProjects\\ChessMatch\\src\\main\\resources\\excel\\Итоговая таблица.xls");
-        Workbook workbook = new HSSFWorkbook(fileXls);
+        workbook = new HSSFWorkbook(fileXls);
     }
+
     @Test
     public void createNewFile() throws IOException {
         Workbook workbookNewFile = new HSSFWorkbook();
@@ -48,4 +51,8 @@ public class TestExcel {
         excelParser.createFile(workbookNewFile);
     }
 
+    @Test
+    public void createEmptySheet() throws IOException {
+        excelParser.createEmptySheet(workbookEmpty, "list");
+    }
 }

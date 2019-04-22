@@ -12,8 +12,10 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 
 public class ExcelParser {
+    public ExcelParser(){}
     public static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
     public static int sheetNumber = 0;
+    private DataBase dataBase = new EmptyDataBase();
 
     public static void main(String[] args) throws IOException {
 
@@ -103,5 +105,12 @@ public class ExcelParser {
                 System.out.println(getCellText(cell));
             }
         }
+    }
+
+    public void createEmptySheet(Workbook workbook, String name) throws IOException {
+        Sheet sheet = workbook.createSheet(name);
+        FileOutputStream file = new FileOutputStream("C:\\Users\\Mikhail\\IdeaProjects\\ChessMatch\\src\\main\\resources\\excel\\table.xls");
+        workbook.write(file);
+        file.close();
     }
 }
