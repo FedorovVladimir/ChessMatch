@@ -9,7 +9,9 @@ public class EmptyDataBase implements DataBase {
 
     private List<Match> players = new LinkedList<>();
 
-    public EmptyDataBase(){}
+    public EmptyDataBase(){
+        players.add(new Match((long) 1, "Этап кубка России", "Барнаул", "24.02.2019", "1", "23", "FM", "Ефанов Михаил", "04.04.1997", "КМС", "2168", "2158", "Алтайский край", "021421412", "9", "37"));
+    }
     @Override
     public Match getMatch(int id) throws Exception {
         for (int i = 0; i < players.size(); i++) {
@@ -21,7 +23,7 @@ public class EmptyDataBase implements DataBase {
     }
 
     @Override
-    public List<Match> getMatchs() {
+    public List<Match> getMatches() {
         return players;
     }
 }
