@@ -10,6 +10,28 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 public class TestExcel {
+    public static int sheetNumber = 0;
+    public static ExcelParser excelParser = new ExcelParser();
+    public static FileInputStream fileXls;
+
+    static {
+        try {
+            fileXls = new FileInputStream("C:\\Users\\Mikhail\\IdeaProjects\\ChessMatch\\src\\main\\resources\\excel\\Итоговая таблица.xls");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static Workbook workbook;
+
+    static {
+        try {
+            workbook = new HSSFWorkbook(fileXls);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @Test
     public void testCreateExcelParser(){
         ExcelParser excelParser = new ExcelParser();
@@ -18,6 +40,12 @@ public class TestExcel {
     public void openExcelFile() throws IOException {
         FileInputStream fileXls = new FileInputStream("C:\\Users\\Mikhail\\IdeaProjects\\ChessMatch\\src\\main\\resources\\excel\\Итоговая таблица.xls");
         Workbook workbook = new HSSFWorkbook(fileXls);
+    }
+    @Test
+    public void createNewFile() throws IOException {
+        Workbook workbookNewFile = new HSSFWorkbook();
+        excelParser.createSheet(workbook, workbookNewFile,"List1", sheetNumber);
+        excelParser.createFile(workbookNewFile);
     }
 
 }
