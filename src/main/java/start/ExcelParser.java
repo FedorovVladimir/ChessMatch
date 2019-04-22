@@ -1,12 +1,13 @@
 package start;
 
+import org.apache.poi.hssf.usermodel.HSSFCell;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.util.CellReference;
+import org.hibernate.jdbc.Work;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -115,8 +116,21 @@ public class ExcelParser {
         return workbook;
     }
 
-    public Workbook createHeader(Workbook workbookNew) throws Exception {
-        Sheet sheet = workbookNew.getSheetAt(sheetNumber);
+    public void writeFile(Workbook workbook, String nameFile) throws IOException {
+        FileOutputStream file = new FileOutputStream("C:\\Users\\Mikhail\\IdeaProjects\\ChessMatch\\src\\main\\resources\\excel\\" + nameFile);
+        workbook.write(file);
+        file.close();
+    }
+
+    public Workbook openFile(String s) throws IOException {
+        FileInputStream fileXls = new FileInputStream("C:\\Users\\Mikhail\\IdeaProjects\\ChessMatch\\src\\main\\resources\\excel\\" + s);
+        Workbook workbook = new HSSFWorkbook(fileXls);
+        Sheet a = workbook.getSheetAt(0);
+        return workbook;
+    }
+
+    public Workbook enterHeader(Workbook workbookTemplate, String sheetName) throws Exception {
+        Sheet sheet = workbookTemplate.getSheetAt(0);
         for (int i = 0; i < 4; i++) {
             Row rowNew = sheet.createRow(i);
             for (int j = 0; j < 15; j++) {
@@ -132,13 +146,7 @@ public class ExcelParser {
         }
         addMerged(sheet, 0,0, 0, 15);
         addMerged(sheet, 2,2, 0, 2);
-        writeFile(workbookNew);
-        return workbookNew;
-    }
-
-    public void writeFile(Workbook workbook) throws IOException {
-        FileOutputStream file = new FileOutputStream("C:\\Users\\Mikhail\\IdeaProjects\\ChessMatch\\src\\main\\resources\\excel\\table.xls");
-        workbook.write(file);
-        file.close();
+        writeFile(workbookTemplate, "template.xls");
+        return workbookTemplate;
     }
 }

@@ -13,6 +13,7 @@ public class TestExcel {
     public static int sheetNumber = 0;
     public static ExcelParser excelParser = new ExcelParser();
     public static Workbook workbookNew = new HSSFWorkbook();
+    public static Workbook workbookTemplate = new HSSFWorkbook();
     public static FileInputStream fileXls;
 
     static {
@@ -57,7 +58,8 @@ public class TestExcel {
     }
 
     @Test
-    public void createHeaderSheet() throws Exception {
-       workbookNew = excelParser.createHeader(workbookNew);
+    public void openTemplateFile() throws Exception {
+        workbookTemplate = excelParser.openFile("template.xls");
+        workbookTemplate = excelParser.enterHeader(workbookTemplate, "Sheet1");
     }
 }
