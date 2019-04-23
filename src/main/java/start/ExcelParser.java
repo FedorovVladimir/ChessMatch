@@ -12,6 +12,11 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 
+import org.apache.poi.ss.usermodel.BorderStyle.*;
+
+import static org.apache.poi.hssf.record.ExtendedFormatRecord.MEDIUM_DASHED;
+import static org.apache.poi.hssf.record.ExtendedFormatRecord.THIN;
+
 public class ExcelParser {
     public ExcelParser(){}
     public static SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy");
@@ -130,7 +135,7 @@ public class ExcelParser {
     }
 
     public Workbook enterHeader(Workbook workbookTemplate, String sheetName) throws Exception {
-        Sheet sheet = workbookTemplate.getSheetAt(0);
+        Sheet sheet = workbookTemplate.getSheetAt(sheetNumber);
         for (int i = 0; i < 4; i++) {
             Row rowNew = sheet.createRow(i);
             for (int j = 0; j < 15; j++) {
@@ -138,6 +143,7 @@ public class ExcelParser {
                     Cell cellNew = rowNew.createCell(j);
                     cellNew.setCellValue(dataBase.getMatch(1).getNameTour());
                 }
+
                 if (i == 2 && j == 0){
                     Cell cellNew = rowNew.createCell(j);
                     cellNew.setCellValue(dataBase.getMatch(1).getCity());
@@ -148,5 +154,20 @@ public class ExcelParser {
         addMerged(sheet, 2,2, 0, 2);
         writeFile(workbookTemplate, "template.xls");
         return workbookTemplate;
+    }
+
+    public void setBorder(Workbook workbookTemplate, Cell cell) throws IOException {
+        Sheet sheet = workbookTemplate.getSheetAt(sheetNumber);
+        CellStyle style = workbookTemplate.createCellStyle();
+        style.setBorderBottom(THIN);
+        style.setBottomBorderColor(IndexedColors.BLACK.getIndex());
+        style.setBorderLeft(THIN);
+        style.setLeftBorderColor(IndexedColors.BLACK.getIndex());
+        style.setBorderRight(THIN);
+        style.setRightBorderColor(IndexedColors.BLACK.getIndex());
+        style.setBorderTop(THIN);
+        style.setTopBorderColor(IndexedColors.BLACK.getIndex());
+        cell.setCellStyle(style);
+        writeFile(workbookTemplate, "template.xls");
     }
 }
