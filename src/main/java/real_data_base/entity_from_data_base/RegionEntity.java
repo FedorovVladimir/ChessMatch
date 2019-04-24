@@ -1,4 +1,4 @@
-package real_data_base.entitys_from_db;
+package real_data_base.entity_from_data_base;
 
 import javax.persistence.*;
 import java.util.Objects;

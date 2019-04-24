@@ -1,4 +1,4 @@
-package db;
+package real_data_base;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

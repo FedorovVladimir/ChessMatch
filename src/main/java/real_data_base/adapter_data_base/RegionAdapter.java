@@ -1,9 +1,9 @@
 package real_data_base.adapter_data_base;
 
-import db.HibernateUtil;
+import real_data_base.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import real_data_base.entitys_from_db.RegionEntity;
+import real_data_base.entity_from_data_base.RegionEntity;
 
 import java.util.List;
 
