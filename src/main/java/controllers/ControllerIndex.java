@@ -9,6 +9,7 @@ import start.EmptyDataBase;
 @Controller
 public class ControllerIndex {
     private DataBase db = new EmptyDataBase();
+    private DataBase dbTournaments = new EmptyDataBase();
 
     @GetMapping("/result")
     public String result(Model p) {
@@ -16,6 +17,11 @@ public class ControllerIndex {
         return "result";
     }
 
+    @GetMapping("/tournaments")
+    public String tournaments(Model tour) {
+        tour.addAttribute("tournaments", dbTournaments.getMatches());
+        return "tournaments";
+    }
     @GetMapping("/")
     public String index() {
         return "index";
