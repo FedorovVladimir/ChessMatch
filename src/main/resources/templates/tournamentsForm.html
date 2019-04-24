@@ -72,11 +72,7 @@
                 <div class="form-group">
                     <label for="system">Система проведения</label>
                     <select class="form-control" id="system">
-                        <option>Система проведения 1</option>
-                        <option>Система проведения 2</option>
-                        <option>Система проведения 3</option>
-                        <option>Система проведения 4</option>
-                        <option>Система проведения 5</option>
+                        <option th:each="t : ${systemMatchs}" th:text="${t.name}"></option>
                     </select>
                 </div>
 
@@ -90,11 +86,7 @@
                 <div class="form-group">
                     <label for="coeff">Дополнительные показатели</label>
                     <select class="form-control" id="coeff">
-                        <option>Тип соревнований 1</option>
-                        <option>Тип соревнований 2</option>
-                        <option>Тип соревнований 3</option>
-                        <option>Тип соревнований 4</option>
-                        <option>Тип соревнований 5</option>
+                        <option th:each="t : ${indicators}" th:text="${t.name}"></option>
                     </select>
                 </div>
 
