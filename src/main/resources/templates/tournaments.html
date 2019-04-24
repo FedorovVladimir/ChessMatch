@@ -3,9 +3,11 @@
 <head th:replace="wrapper :: #head"></head>
 <body>
     <div th:replace="wrapper :: #nav"></div>
+
     <div class="alert alert-primary" role="alert">
-        Шахматные турниры
+        Шахматные турниры <a href="/tournaments/add" role="button" class="btn btn-info ml-2">Добавить новый турнир</a>
     </div>
+
     <div class="container">
         <table class="table table-sm">
             <thead>

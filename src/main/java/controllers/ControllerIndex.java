@@ -22,6 +22,12 @@ public class ControllerIndex {
         tour.addAttribute("tournaments", dbTournaments.getMatches());
         return "tournaments";
     }
+
+    @GetMapping("/tournaments/add")
+    public String tournamentsAdd(Model m) {
+        return "tournamentsForm";
+    }
+
     @GetMapping("/")
     public String index() {
         return "index";

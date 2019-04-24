@@ -1,0 +1,128 @@
+<!doctype html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="wrapper :: #head"></head>
+<body>
+    <div th:replace="wrapper :: #nav"></div>
+
+    <div class="row">
+        <div class="col-md-4 container mt-5">
+            <form>
+
+                <div class="form-group">
+                    <label for="name">Название</label>
+                    <input type="text" class="form-control" id="name" placeholder="Этап кубка России">
+                </div>
+
+                <div class="form-group">
+                    <label for="country">Страна</label>
+                    <select class="form-control" id="country">
+                        <option>Страна 1</option>
+                        <option>Страна 2</option>
+                        <option>Страна 3</option>
+                        <option>Страна 4</option>
+                        <option>Страна 5</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="subject">Субъект</label>
+                    <select class="form-control" id="subject">
+                        <option>Субъект 1</option>
+                        <option>Субъект 2</option>
+                        <option>Субъект 3</option>
+                        <option>Субъект 4</option>
+                        <option>Субъект 5</option>
+                    </select>
+                </div>
+
+                <div class="form-row">
+                    <div class="container col-6">
+                        <div class="form-group">
+                            <label for="startDate">Введите дату начала:</label>
+                            <input type="date" class="form-control" id="startDate">
+                        </div>
+                    </div>
+                    <div class="container col-6">
+                        <div class="form-group">
+                            <label for="endDate">Введите дату окончания:</label>
+                            <input type="date" class="form-control" id="endDate">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="mainArbiter">Главный судья</label>
+                    <select class="form-control" id="mainArbiter">
+                        <option>Главный судья 1</option>
+                        <option>Главный судья 2</option>
+                        <option>Главный судья 3</option>
+                        <option>Главный судья 4</option>
+                        <option>Главный судья 5</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="mainSecretary">Главный секретарь</label>
+                    <select class="form-control" id="mainSecretary">
+                        <option>Главный секретарь 1</option>
+                        <option>Главный секретарь 2</option>
+                        <option>Главный секретарь 3</option>
+                        <option>Главный секретарь 4</option>
+                        <option>Главный секретарь 5</option>
+                    </select>
+                </div>
+
+                <p>Ввод списка судей</p>
+
+                <div class="form-group">
+                    <label for="countTour">Количество туров</label>
+                    <input type="text" class="form-control" id="countTour" placeholder="9">
+                </div>
+
+                <div class="form-group">
+                    <label for="timeControl">Контроль времени</label>
+                    <input type="text" class="form-control" id="timeControl" placeholder="3+2">
+                </div>
+
+                <div class="form-group">
+                    <label for="system">Система проведения</label>
+                    <select class="form-control" id="system">
+                        <option>Система проведения 1</option>
+                        <option>Система проведения 2</option>
+                        <option>Система проведения 3</option>
+                        <option>Система проведения 4</option>
+                        <option>Система проведения 5</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="typeCompetition">Тип соревнований</label>
+                    <select class="form-control" id="typeCompetition">
+                        <option>Тип соревнований 1</option>
+                        <option>Тип соревнований 2</option>
+                        <option>Тип соревнований 3</option>
+                        <option>Тип соревнований 4</option>
+                        <option>Тип соревнований 5</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="coeff">Дополнительные показатели</label>
+                    <select class="form-control" id="coeff">
+                        <option>Тип соревнований 1</option>
+                        <option>Тип соревнований 2</option>
+                        <option>Тип соревнований 3</option>
+                        <option>Тип соревнований 4</option>
+                        <option>Тип соревнований 5</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Создать</button>
+            </form>
+        </div>
+    </div>
+
+    <div th:replace="wrapper :: #libs"></div>
+</body>
+</html>
+
