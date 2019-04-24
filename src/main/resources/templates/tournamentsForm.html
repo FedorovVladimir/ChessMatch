@@ -14,24 +14,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="country">Страна</label>
-                    <select class="form-control" id="country">
-                        <option>Страна 1</option>
-                        <option>Страна 2</option>
-                        <option>Страна 3</option>
-                        <option>Страна 4</option>
-                        <option>Страна 5</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label for="subject">Субъект</label>
-                    <select class="form-control" id="subject">
-                        <option>Субъект 1</option>
-                        <option>Субъект 2</option>
-                        <option>Субъект 3</option>
-                        <option>Субъект 4</option>
-                        <option>Субъект 5</option>
+                    <label for="region">Субъект</label>
+                    <select class="form-control" id="region">
+                        <option th:each="r : ${regions}" th:text="${r.name}">1</option>
                     </select>
                 </div>
 

@@ -1,8 +1,10 @@
 package controllers;
 
+import org.springframework.core.ReactiveAdapter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import real_data_base.adapter_data_base.RegionAdapter;
 import start.DataBase;
 import start.EmptyDataBase;
 
@@ -25,6 +27,7 @@ public class ControllerIndex {
 
     @GetMapping("/tournaments/add")
     public String tournamentsAdd(Model m) {
+        m.addAttribute("regions", RegionAdapter.getAll());
         return "tournamentsForm";
     }
 
