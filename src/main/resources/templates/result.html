@@ -1,0 +1,58 @@
+<!doctype html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="wrapper :: #head"></head>
+<body>
+    <div th:replace="wrapper :: #nav"></div>
+
+
+    <!--<p th:text="${player.numberStart}">-->
+    <div class="alert alert-primary" role="alert">
+        Итоговые результаты
+    </div>
+    <div class="container">
+        <div class="d-flex flex-row">
+            <div class="p-2">1</div>
+            <div class="p-2">2</div>
+            <div class="p-2">3</div>
+            <div class="p-2">4</div>
+            <div class="p-2">5</div>
+            <div class="p-2">6</div>
+            <div class="p-2">7</div>
+            <div class="p-2">8</div>
+            <div class="p-2">9</div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th scope="col">Место</th>
+                <th scope="col">Ст.№</th>
+                <th scope="col">Титул</th>
+                <th scope="col">Участник</th>
+                <th scope="col">Фед</th>
+                <th scope="col">Регион</th>
+                <th scope="col">Очки</th>
+                <th scope="col">BH.</th>
+            </tr>
+            </thead>
+            <tbody>
+            <div th:each="p : ${players}">
+                <tr>
+                    <th scope="row">1</th>
+                    <td th:text="${p.numberStart}">20 </td>
+                    <td th:text="${p.title}">FM</td>
+                    <td th:text="${p.fio}">Ефанов Михаил</td>
+                    <td>Rus</td>
+                    <td>Алтайский край</td>
+                    <td th:text="${p.total}">9</td>
+                    <td th:text="${p.coeff}">23</td>
+                </tr>
+            </div>
+            </tbody>
+        </table>
+    </div>
+    <div th:replace="wrapper :: #libs"></div>
+</body>
+</html>
