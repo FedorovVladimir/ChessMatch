@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="wrapper :: #head"></head>
 <body>
-
+    <div th:replace="wrapper :: #nav"></div>
     <div class="alert alert-success m-5" role="alert">
         <h4 class="alert-heading">ChessMatсh</h4>
         <p>Добро пожаловать в приложение ChessMatсh!</p>
@@ -16,8 +16,9 @@
             <li class="list-group-item">6 Отчеты</li>
         </ul>
     </div>
+    <div th:replace="wrapper :: #libs"></div>
 
-<div th:replace="wrapper :: #libs"></div>
+
 </body>
 </html>
 

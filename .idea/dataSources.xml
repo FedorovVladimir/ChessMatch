@@ -1,20 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="CheesMatch" uuid="8fe49449-1268-447f-a482-f10345e4c9df">
+    <data-source source="LOCAL" name="ChessMatch" uuid="ca5914fe-4a94-431a-8029-1ea2aef49020">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
       <remarks>Hibernate
 
-/home/vladimir/IdeaProjects/ChessMatch/src/main/java/db/hibernate.cfg.xml</remarks>
+C:/Users/Mikhail/IdeaProjects/ChessMatch/src/main/resources/hibernate.cfg.xml</remarks>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://vladimir7.beget.tech/vladimir7_chess</jdbc-url>
+      <jdbc-url>jdbc:mysql://vladimir7.beget.tech/vladimir7_chess?serverTimezone=UTC</jdbc-url>
       <driver-properties>
         <property name="autoReconnect" value="true" />
         <property name="yearIsDateType" value="false" />
         <property name="characterEncoding" value="utf8" />
-        <property name="zeroDateTimeBehavior" value="CONVERT_TO_NULL" />
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
+        <property name="characterSetResults" value="utf8" />
+        <property name="tinyInt1isBit" value="false" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="c85088b7-9e4d-4f03-8d4f-ff3c4a9af33c">
+      <driver-ref>mysql</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>Hibernate
+
+C:/Users/Mikhail/IdeaProjects/ChessMatch/src/main/resources/hibernate.cfg.xml</remarks>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://vladimir7.beget.tech/vladimir7_chess?serverTimezone=UTC</jdbc-url>
+      <driver-properties>
+        <property name="autoReconnect" value="true" />
+        <property name="yearIsDateType" value="false" />
+        <property name="characterEncoding" value="utf8" />
+        <property name="zeroDateTimeBehavior" value="convertToNull" />
         <property name="characterSetResults" value="utf8" />
         <property name="tinyInt1isBit" value="false" />
       </driver-properties>

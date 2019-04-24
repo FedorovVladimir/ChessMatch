@@ -11,6 +11,7 @@ public class TestWorkEntity {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         CountryEntity countryEntity = new CountryEntity();
+        countryEntity.setPkCountry(4);
         countryEntity.setNameCountry("RUS");
         countryEntity.setCodeCountry("+7");
         session.save(countryEntity);

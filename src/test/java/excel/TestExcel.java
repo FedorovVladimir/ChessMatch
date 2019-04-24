@@ -1,6 +1,7 @@
 package excel;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.junit.Test;
 import start.ExcelParser;
@@ -62,4 +63,5 @@ public class TestExcel {
         workbookTemplate = excelParser.openFile("template.xls");
         workbookTemplate = excelParser.enterHeader(workbookTemplate, "Sheet1");
     }
+
 }

@@ -6,8 +6,42 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-    <title>ChessMatch</title>
+    <title>Шахматные соревнования</title>
 </head>
+
+<nav id="nav">
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top"  style="background-color:#563d7c">
+        <a class="navbar-brand" href="#">Соревнования</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="">Главная <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/result">Результаты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/tournaments">Турниры</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Контакты</a>
+                </li>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Поиск" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Искать</button>
+                </form>
+            </ul>
+            <div class="btn-group" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#exampleModal1" >Вход</button>
+                <button type="button" class="btn btn-outline-warning" data-toggle="modal" data-target="#exampleModal">Регистрация</button>
+            </div>
+        </div>
+    </nav>
+</nav>
 
 <div id="libs">
     <!-- Optional JavaScript -->

@@ -11,6 +11,7 @@ public class EmptyDataBase implements DataBase {
 
     public EmptyDataBase(){
         players.add(new Match((long) 1, "Этап кубка России", "Барнаул", "24.02.2019", "1", "23", "FM", "Ефанов Михаил", "04.04.1997", "КМС", "2168", "2158", "Алтайский край", "021421412", "9", "37"));
+        players.add(new Match((long) 2, "Этап кубка России", "Барнаул", "24.02.2019", "1", "34", "FM", "Ефанов Михаил", "04.04.1997", "КМС", "2168", "2158", "Алтайский край", "021421412", "8", "33"));
     }
     @Override
     public Match getMatch(int id) throws Exception {

@@ -2,6 +2,7 @@ package data_base;
 
 import org.junit.Test;
 import start.EmptyDataBase;
+import start.ExcelParser;
 import start.entitys_test.Match;
 
 import java.util.List;
@@ -11,6 +12,7 @@ import static org.junit.Assert.assertEquals;
 
 public class TestDataBase {
     public static EmptyDataBase emptyDataBase = new EmptyDataBase();
+    public static ExcelParser excelParser = new ExcelParser();
     @Test
     public void createListPlayers(){
         List<Match> listPlayers = emptyDataBase.getMatches();
@@ -29,5 +31,6 @@ public class TestDataBase {
         Long id = 2L;
         assertEquals(id, emptyDataBase.getMatch(2).getId());
     }
+
 
 }
