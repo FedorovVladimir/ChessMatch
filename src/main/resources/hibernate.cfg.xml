@@ -11,8 +11,8 @@
 
         <property name="connection.url">jdbc:mysql://vladimir7.beget.tech/vladimir7_match?serverTimezone=UTC</property>
 
-        <property name="connection.username">vladimir7_match</property>
-        <property name="connection.password">chees_match</property>
+        <property name="hibernate.connection.username">vladimir7_match</property>
+        <property name="hibernate.connection.password">chees_match</property>
 
         <!-- Автоматическое обновления -->
         <property name="hibernate.hbm2ddl.auto">update</property>
@@ -21,7 +21,7 @@
         <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
 
         <!-- JDBC connection pool (use the built-in) -->
-        <property name="connection.pool_size">1</property>
+        <property name="connection.pool_size">10</property>
 
         <!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>
@@ -29,6 +29,7 @@
         <!-- Вывод в консоль SQL-запросов -->
         <property name="show_sql">true</property>
         <mapping class="real_data_base.entity_from_data_base.RegionEntity"/>
+        <mapping class="real_data_base.entity_from_data_base.TypeCompetitionEntity"/>
 
     </session-factory>
 </hibernate-configuration>
