@@ -3,7 +3,7 @@ package pairs;
 public class Game {
     private Human white;
     private Human black;
-    private int result;
+    private ResultGame resultGame;
     private int numberOfDesk;
     public void setBlack(Human black) {
         this.black = black;
@@ -21,12 +21,14 @@ public class Game {
         return white;
     }
 
-    public void setResult(int result) {
-        this.result = result;
+    public void setResult(ResultGame resultGame) {
+        this.resultGame = resultGame;
+        white.addGame(this);
+        black.addGame(this);
     }
 
-    public int getResult() {
-        return result;
+    public ResultGame getResult() {
+        return resultGame;
     }
 
     public int getNumberOfDesk() {
@@ -46,5 +48,14 @@ public class Game {
         this.white = white;
         this.black = black;
         this.numberOfDesk = numberOfDesk;
+    }
+
+    @Override
+    public String toString() {
+        return "Desk " +
+                numberOfDesk + ": "+
+                white + " " +
+                resultGame + " " +
+                black;
     }
 }

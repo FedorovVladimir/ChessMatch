@@ -3,21 +3,10 @@ package pairs;
 import java.util.ArrayList;
 import java.util.List;
 
-enum result{
-    WHITE_WINS,
-    BLACK_WINS,
-    DRAW,
-    MINUS_PLUS,
-    PLUS_MINUS,
-    MINUS_MINUS,
-    ZERO_ZERO
-}
-
-
 public class Tour {
     private int numberOfTour;
     List <Game> listGame = new ArrayList<Game>();
-    ListOfPlayers listOfPlayers;
+    ListPlayers listPlayers;
 
     public void setNumberOfTour(int numberOfTour) {
         this.numberOfTour = numberOfTour;
@@ -27,16 +16,22 @@ public class Tour {
         return numberOfTour;
     }
 
-    public void setListPairsOfPlayer(List<Game> listGame) {
+    public void setLisrGame(List<Game> listGame) {
         this.listGame = listGame;
     }
 
-    public void makeTour() {
-        for (int i = 0; i < listOfPlayers.size(); i += 2) {
-            listGame.get(i);
-        }
-
+    public void setListPlayers(ListPlayers listPlayers) {
+        this.listPlayers = listPlayers;
     }
 
-
+    public void makeTour(int numberOfTour) {
+        for (int i = 0; i < listPlayers.size() / 2; i ++) {
+            listGame.add(new Game(listPlayers.getPlayer(i), listPlayers.getPlayer(listPlayers.size() / 2 + i), i + 1));
+        }
+    }
+    public void print() {
+        for (Game g: listGame) {
+            System.out.println(g);
+        }
+    }
 }

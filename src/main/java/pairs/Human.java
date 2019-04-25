@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Human implements Comparable<Human>{
+public class Human implements Comparable<Human> {
 
     private String firstName;
     private String secondName;
@@ -26,9 +26,13 @@ public class Human implements Comparable<Human>{
         this.rating_rus = rating;
     }
 
-    public void setActive(boolean active) { this.active = active; }
+    public void setActive(boolean active) {
+        this.active = active;
+    }
 
-    public void setMotion(boolean motion) { this.motion = motion; }
+    public void setMotion(boolean motion) {
+        this.motion = motion;
+    }
 
     public String getFirstName() {
         return firstName;
@@ -46,13 +50,31 @@ public class Human implements Comparable<Human>{
         return active;
     }
 
-    public boolean getMotion() { return motion; }
+    public boolean getMotion() {
+        return motion;
+    }
 
     public List<Game> getListGamePlayed() {
         return listGamePlayed;
     }
     public void addGame(Game game) {
-        listGamePlayed.add(game);
+        if (listGamePlayed.indexOf(game) == -1)
+            listGamePlayed.add(game);
+    }
+    public double getPoint() {
+        double sum = 0;
+        for (Game g : listGamePlayed) {
+            if (g.getResult() == ResultGame.DRAW) {
+                sum += 0.5;
+            }
+            else if (this == g.getBlack() && g.getResult() == ResultGame.BLACK_WINS) {
+                sum++;
+            }
+            else if (this == g.getWhite() && g.getResult() == ResultGame.WHITE_WINS) {
+                sum++;
+            }
+        }
+        return sum;
     }
 
 //    public Human() {
@@ -104,6 +126,14 @@ public class Human implements Comparable<Human>{
 
     @Override
     public int compareTo(Human human) {
+
+        double this_res = this.getPoint(), hum_res = human.getPoint();
+        if (hum_res > this_res) {
+            return 1;
+        }
+        if (hum_res < this_res) {
+            return -1;
+        }
         if (human.getRating() > this.getRating()) {
             return 1;
         }
