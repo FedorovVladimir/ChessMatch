@@ -25,10 +25,26 @@ public class Game {
         this.result = result;
     }
 
-    public int getResult() { return result; }
+    public int getResult() {
+        return result;
+    }
+
+    public int getNumberOfDesk() {
+        return numberOfDesk;
+    }
+
+    public void setNumberOfDesk(int numberOfDesk) {
+        this.numberOfDesk = numberOfDesk;
+    }
 
     public Game(Human white, Human black) {
         this.white = white;
         this.black = black;
+    }
+
+    public Game(Human white, Human black, int numberOfDesk) {
+        this.white = white;
+        this.black = black;
+        this.numberOfDesk = numberOfDesk;
     }
 }
