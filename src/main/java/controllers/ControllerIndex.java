@@ -4,10 +4,7 @@ import org.springframework.core.ReactiveAdapter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import real_data_base.adapter_data_base.IndicatorAdapter;
-import real_data_base.adapter_data_base.RegionAdapter;
-import real_data_base.adapter_data_base.SystemMatchAdapter;
-import real_data_base.adapter_data_base.TypeCompetitionAdapter;
+import real_data_base.adapter_data_base.*;
 import start.DataBase;
 import start.EmptyDataBase;
 
@@ -34,6 +31,7 @@ public class ControllerIndex {
         m.addAttribute("typeCompetitions", TypeCompetitionAdapter.getAll());
         m.addAttribute("systemMatchs", SystemMatchAdapter.getAll());
         m.addAttribute("indicators", IndicatorAdapter.getAll());
+        m.addAttribute("arbiters", ArbiterAdapter.getAll());
         return "tournamentsForm";
     }
 

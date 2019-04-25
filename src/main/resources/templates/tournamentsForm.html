@@ -38,22 +38,14 @@
                 <div class="form-group">
                     <label for="mainArbiter">Главный судья</label>
                     <select class="form-control" id="mainArbiter">
-                        <option>Главный судья 1</option>
-                        <option>Главный судья 2</option>
-                        <option>Главный судья 3</option>
-                        <option>Главный судья 4</option>
-                        <option>Главный судья 5</option>
+                        <option th:each="t : ${arbiters}" th:text="${t.human.last} + ' ' + ${t.human.first}"></option>
                     </select>
                 </div>
 
                 <div class="form-group">
                     <label for="mainSecretary">Главный секретарь</label>
                     <select class="form-control" id="mainSecretary">
-                        <option>Главный секретарь 1</option>
-                        <option>Главный секретарь 2</option>
-                        <option>Главный секретарь 3</option>
-                        <option>Главный секретарь 4</option>
-                        <option>Главный секретарь 5</option>
+                        <option th:each="t : ${arbiters}" th:text="${t.human.last} + ' ' + ${t.human.first}"></option>
                     </select>
                 </div>
 

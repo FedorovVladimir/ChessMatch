@@ -32,6 +32,8 @@
         <mapping class="real_data_base.entity_from_data_base.TypeCompetitionEntity"/>
         <mapping class="real_data_base.entity_from_data_base.SystemMatchEntity"/>
         <mapping class="real_data_base.entity_from_data_base.IndicatorEntity"/>
+        <mapping class="real_data_base.entity_from_data_base.HumanEntity"/>
+        <mapping resource="ArbiterEntity.hbm.xml"/>
 
     </session-factory>
 </hibernate-configuration>

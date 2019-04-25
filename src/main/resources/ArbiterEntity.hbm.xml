@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="real_data_base.entity_from_data_base.ArbiterEntity" table="ARBITER" schema="vladimir7_match">
+        <id name="id" column="ID"/>
+        <many-to-one name="human" class="real_data_base.entity_from_data_base.HumanEntity" fetch="select">
+            <column name="ID_HUMAN" not-null="true"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>
