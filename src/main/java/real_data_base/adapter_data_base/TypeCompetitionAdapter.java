@@ -9,6 +9,13 @@ import java.util.List;
 
 public class TypeCompetitionAdapter {
 
+    private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+    private static Session session = sessionFactory.openSession();
+
+    static {
+        session.beginTransaction();
+    }
+
     public static void main(String[] args) {
         List<TypeCompetitionEntity> typeCompetitionEntities = getAll();
         for (TypeCompetitionEntity r: typeCompetitionEntities) {
@@ -17,10 +24,8 @@ public class TypeCompetitionAdapter {
     }
 
     public static List<TypeCompetitionEntity> getAll() {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
         String sql = "From " + TypeCompetitionEntity.class.getSimpleName();
-        return session.createQuery(sql).list();
+        List<TypeCompetitionEntity> typeCompetitionEntities = session.createQuery(sql).list();
+        return typeCompetitionEntities;
     }
 }

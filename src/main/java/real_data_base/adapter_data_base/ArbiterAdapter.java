@@ -10,6 +10,13 @@ import java.util.List;
 
 public class ArbiterAdapter {
 
+    private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+    private static Session session = sessionFactory.openSession();
+
+    static {
+        session.beginTransaction();
+    }
+
     public static void main(String[] args) {
         List<ArbiterEntity> arbiterEntities = getAll();
         System.out.println(arbiterEntities.size());
@@ -19,10 +26,8 @@ public class ArbiterAdapter {
     }
 
     public static List<ArbiterEntity> getAll() {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
         String sql = "From " + ArbiterEntity.class.getSimpleName();
-        return session.createQuery(sql).list();
+        List<ArbiterEntity> arbiterEntities = session.createQuery(sql).list();
+        return arbiterEntities;
     }
 }

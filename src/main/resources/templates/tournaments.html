@@ -14,17 +14,19 @@
                 <tr>
                     <th scope="col">Название</th>
                     <th scope="col">Город</th>
-                    <th scope="col">Дата проведения</th>
-                    <th scope="col">Место проведения</th>
+                    <th scope="col">Дата начала</th>
+                    <th scope="col">Дата окончания</th>
+                    <th scope="col">Адрес</th>
                 </tr>
             </thead>
                 <tbody>
                     <div th:each="t : ${tournaments}">
                         <tr>
-                            <td th:text="${t.nameTour}"></td>
-                            <td th:text="${t.city}"></td>
-                            <td th:text="${t.date}"></td>
-                            <td th:text="${t.place}"></td>
+                            <td th:text="${t.name}"></td>
+                            <td th:text="${t.city.name}"></td>
+                            <td th:text="${t.dateStart}"></td>
+                            <td th:text="${t.dateEnd}"></td>
+                            <td th:text="${t.adress}"></td>
                         </tr>
                     </div>
                 </tbody>

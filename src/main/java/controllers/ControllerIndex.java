@@ -20,8 +20,8 @@ public class ControllerIndex {
     }
 
     @GetMapping("/tournaments")
-    public String tournaments(Model tour) {
-        tour.addAttribute("tournaments", dbTournaments.getMatches());
+    public String tournaments(Model m) {
+        m.addAttribute("tournaments", TournamentAdapter.getAll());
         return "tournaments";
     }
 

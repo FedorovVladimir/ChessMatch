@@ -10,6 +10,13 @@ import java.util.List;
 
 public class IndicatorAdapter {
 
+    private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+    private static Session session = sessionFactory.openSession();
+
+    static {
+        session.beginTransaction();
+    }
+
     public static void main(String[] args) {
         List<IndicatorEntity> indicatorEntities = getAll();
         for (IndicatorEntity r: indicatorEntities) {
@@ -18,10 +25,8 @@ public class IndicatorAdapter {
     }
 
     public static List<IndicatorEntity> getAll() {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
         String sql = "From " + IndicatorEntity.class.getSimpleName();
-        return session.createQuery(sql).list();
+        List<IndicatorEntity> indicatorEntities = session.createQuery(sql).list();
+        return indicatorEntities;
     }
 }

@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="real_data_base.entity_from_data_base.TournamentEntity" table="TOURNAMENT" schema="vladimir7_match">
+        <id name="id" column="ID"/>
+        <property name="name" column="NAME"/>
+        <property name="dateStart" column="DATE_START"/>
+        <property name="dateEnd" column="DATE_END"/>
+        <property name="adress" column="ADRESS"/>
+        <many-to-one name="city" column="ID_CITY"/>
+    </class>
+</hibernate-mapping>

@@ -33,7 +33,10 @@
         <mapping class="real_data_base.entity_from_data_base.SystemMatchEntity"/>
         <mapping class="real_data_base.entity_from_data_base.IndicatorEntity"/>
         <mapping class="real_data_base.entity_from_data_base.HumanEntity"/>
-        <mapping resource="ArbiterEntity.hbm.xml"/>
+        <mapping resource="data_base_xml/ArbiterEntity.hbm.xml"/>
+        <mapping class="real_data_base.entity_from_data_base.TournamentEntity"/>
+        <mapping resource="data_base_xml/TournamentEntity.hbm.xml"/>
+        <mapping class="real_data_base.entity_from_data_base.CityEntity"/>
 
     </session-factory>
 </hibernate-configuration>

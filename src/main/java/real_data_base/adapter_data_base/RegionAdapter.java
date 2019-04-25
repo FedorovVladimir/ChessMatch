@@ -9,6 +9,13 @@ import java.util.List;
 
 public class RegionAdapter {
 
+    private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+    private static Session session = sessionFactory.openSession();
+
+    static {
+        session.beginTransaction();
+    }
+
     public static void main(String[] args) {
         List<RegionEntity> regionEntityList = getAll();
         for (RegionEntity r: regionEntityList) {
@@ -17,10 +24,8 @@ public class RegionAdapter {
     }
 
     public static List<RegionEntity> getAll() {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
         String sql = "From " + RegionEntity.class.getSimpleName();
-        return session.createQuery(sql).list();
+        List<RegionEntity> regionEntities = session.createQuery(sql).list();
+        return regionEntities;
     }
 }

@@ -10,6 +10,13 @@ import java.util.List;
 
 public class SystemMatchAdapter {
 
+    private static SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+    private static Session session = sessionFactory.openSession();
+
+    static {
+        session.beginTransaction();
+    }
+
     public static void main(String[] args) {
         List<SystemMatchEntity> systemMatchEntities = getAll();
         for (SystemMatchEntity r: systemMatchEntities) {
@@ -18,10 +25,8 @@ public class SystemMatchAdapter {
     }
 
     public static List<SystemMatchEntity> getAll() {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session session = sessionFactory.openSession();
-        session.beginTransaction();
         String sql = "From " + SystemMatchEntity.class.getSimpleName();
-        return session.createQuery(sql).list();
+        List<SystemMatchEntity> systemMatchEntities = session.createQuery(sql).list();
+        return systemMatchEntities;
     }
 }
