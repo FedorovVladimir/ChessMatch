@@ -22,11 +22,12 @@ public class Game {
     }
 
     public void setResult(ResultGame resultGame) {
+        if (this.resultGame == null) {
+            white.addGame(this);
+            black.addGame(this);
+        }
         this.resultGame = resultGame;
-        white.addGame(this);
-        black.addGame(this);
     }
-
     public ResultGame getResult() {
         return resultGame;
     }

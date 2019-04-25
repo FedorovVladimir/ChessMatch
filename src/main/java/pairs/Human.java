@@ -58,7 +58,6 @@ public class Human implements Comparable<Human> {
         return listGamePlayed;
     }
     public void addGame(Game game) {
-        if (listGamePlayed.indexOf(game) == -1)
             listGamePlayed.add(game);
     }
     public double getPoint() {
