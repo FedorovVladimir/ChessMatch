@@ -20,7 +20,10 @@
                     </select>
                 </div>
 
-                <p>adress</p>
+                <div class="form-group">
+                    <label for="adress">Адрес</label>
+                    <input type="text" class="form-control" id="adress" placeholder="ул. Гоголя 42">
+                </div>
 
                 <div class="form-row">
                     <div class="container col-6">
@@ -95,6 +98,7 @@
         function send() {
             var name = document.getElementById("name").value;
             var region = document.getElementById("region").value;
+            var adress = document.getElementById("adress").value;
             var startDate = document.getElementById("startDate").value;
             var endDate = document.getElementById("endDate").value;
             var mainArbiter = document.getElementById("mainArbiter").value;
@@ -121,6 +125,7 @@
             var tournamentEntity = {
                 name : name,
                 region : region,
+                adress : adress,
                 startDate : startDate,
                 endDate : endDate,
                 mainArbiter : mainArbiter,

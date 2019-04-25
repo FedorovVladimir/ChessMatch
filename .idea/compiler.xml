@@ -7,15 +7,18 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ChessMatch" />
+        <module name="ChessMatch3" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="ChessMatch" target="1.8" />
+      <module name="ChessMatch3" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ChessMatch" options="-parameters" />
+      <module name="ChessMatch3" options="-parameters" />
     </option>
   </component>
 </project>
