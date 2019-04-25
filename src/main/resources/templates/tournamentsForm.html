@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-md-4 container mt-5">
-            <form>
+            <form method="post" action="/tournaments/add">
 
                 <div class="form-group">
                     <label for="name">Название</label>
@@ -19,6 +19,8 @@
                         <option th:each="r : ${regions}" th:value="${r.id}" th:text="${r.name}">1</option>
                     </select>
                 </div>
+
+                <p>adress</p>
 
                 <div class="form-row">
                     <div class="container col-6">
@@ -84,15 +86,55 @@
                     </select>
                 </div>
 
-                <button class="btn btn-primary" id="send">Создать</button>
+                <button class="btn btn-primary" onclick="send()">Создать</button>
             </form>
         </div>
     </div>
 
     <script type="application/javascript">
-        $("#send").click(function () {
-            alert("OGON");
-        });
+        function send() {
+            var name = document.getElementById("name").value;
+            var region = document.getElementById("region").value;
+            var startDate = document.getElementById("startDate").value;
+            var endDate = document.getElementById("endDate").value;
+            var mainArbiter = document.getElementById("mainArbiter").value;
+            var mainSecretary = document.getElementById("mainSecretary").value;
+            var countTour = document.getElementById("countTour").value;
+            var timeControl = document.getElementById("timeControl").value;
+            var system = document.getElementById("system").value;
+            var typeCompetition = document.getElementById("typeCompetition").value;
+            var coeff = document.getElementById("coeff").value;
+
+            // var json = '{' +
+            //     '"name" : "' + name + '",' +
+            //     '"region" : "' + region + '",' +
+            //     '"startDate" : "' + startDate + '",' +
+            //     '"endDate" : "' + endDate + '",' +
+            //     '"mainArbiter" : "' + mainArbiter + '",' +
+            //     '"mainSecretary" : "' + mainSecretary + '",' +
+            //     '"countTour" : "' + countTour + '",' +
+            //     '"timeControl" : "' + timeControl + '",' +
+            //     '"system" : "' + system + '",' +
+            //     '"typeCompetition" : "' + typeCompetition + '",' +
+            //     '"coeff" : "' + coeff + '"' +
+            //     '}';
+            var tournamentEntity = {
+                name : name,
+                region : region,
+                startDate : startDate,
+                endDate : endDate,
+                mainArbiter : mainArbiter,
+                mainSecretary : mainSecretary,
+                countTour : countTour,
+                timeControl : timeControl,
+                system : system,
+                typeCompetition : typeCompetition,
+                coeff : coeff
+            };
+            alert(JSON.stringify(tournamentEntity));
+            var result = JSON.stringify(tournamentEntity);
+            result.submit();
+        }
     </script>
 
     <div th:replace="wrapper :: #libs"></div>

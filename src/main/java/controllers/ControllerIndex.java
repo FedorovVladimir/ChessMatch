@@ -3,10 +3,14 @@ package controllers;
 import org.springframework.core.ReactiveAdapter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.*;
 import real_data_base.adapter_data_base.*;
+import real_data_base.entity_from_data_base.TournamentEntity;
 import start.DataBase;
 import start.EmptyDataBase;
+
+import java.util.List;
+import java.util.Map;
 
 @Controller
 public class ControllerIndex {
@@ -33,6 +37,12 @@ public class ControllerIndex {
         m.addAttribute("indicators", IndicatorAdapter.getAll());
         m.addAttribute("arbiters", ArbiterAdapter.getAll());
         return "tournamentsForm";
+    }
+
+    @PostMapping("/tournaments/add")
+    public String tournamentsAddJson(Map<String, Object> list) {
+        System.out.println("OK");
+        return "redirect:/ tournaments";
     }
 
     @GetMapping("/")
