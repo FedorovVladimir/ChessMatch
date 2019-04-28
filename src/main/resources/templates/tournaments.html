@@ -21,16 +21,18 @@
                     <th scope="col">Дата начала</th>
                     <th scope="col">Дата окончания</th>
                     <th scope="col">Адрес</th>
+                    <th scope="col">Информация</th>
                 </tr>
             </thead>
                 <tbody>
                     <div th:each="t : ${tournaments}">
                         <tr>
-                            <td th:text="${t.name}" onclick="window.location.href='/tournaments/info'; return false"> </td>
+                            <td th:text="${t.name}"> </td>
                             <td th:text="${t.city.name}"></td>
                             <td th:text="${t.dateStart}"></td>
                             <td th:text="${t.dateEnd}"></td>
                             <td th:text="${t.adress}"></td>
+                            <td> <a class="btn btn-ms btn-block btn-outline-primary"th:href="@{/tournaments/info/{id}(id=${t.id})}">Подробнее</a></td>
                         </tr>
                     </div>
                 </tbody>

@@ -1,6 +1,5 @@
 package controllers;
 
-import org.springframework.core.ReactiveAdapter;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -9,7 +8,6 @@ import real_data_base.entity_from_data_base.TournamentEntity;
 import start.DataBase;
 import start.EmptyDataBase;
 
-import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -30,7 +28,7 @@ public class ControllerIndex {
     }
     @GetMapping("/tournaments/info/{id}")
     public String info(@PathVariable int id, Model m) {
-        m.addAttribute("tournaments", TournamentAdapter.getAll());
+        m.addAttribute("info", TournamentAdapter.getId(1));
         return "info";
     }
 

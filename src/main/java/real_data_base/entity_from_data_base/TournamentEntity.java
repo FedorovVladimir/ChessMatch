@@ -5,13 +5,14 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "TOURNAMENT", schema = "vladimir7_match")
+@Table(name = "TOURNAMENT", schema = "vladimir7_match", catalog = "")
 public class TournamentEntity {
     private int id;
     private String name;
     private Date dateStart;
     private Date dateEnd;
     private String adress;
+    private String timeControl;
     private CityEntity city;
 
     @Id
@@ -71,6 +72,15 @@ public class TournamentEntity {
     public void setCity(CityEntity city) {
         this.city = city;
     }
+    @Basic
+    @Column(name = "TIME_CONTROL")
+    public String getTimeControl() {
+        return timeControl;
+    }
+
+    public void setTimeControl(String timeControl) {
+        this.timeControl = timeControl;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -81,11 +91,24 @@ public class TournamentEntity {
                 Objects.equals(name, that.name) &&
                 Objects.equals(dateStart, that.dateStart) &&
                 Objects.equals(dateEnd, that.dateEnd) &&
-                Objects.equals(adress, that.adress);
+                Objects.equals(adress, that.adress) &&
+                Objects.equals(timeControl, that.timeControl);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, dateStart, dateEnd, adress);
+        return Objects.hash(id, name, dateStart, dateEnd, adress, timeControl);
+    }
+
+    @Override
+    public String toString() {
+        return "TournamentEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", dateStart=" + dateStart +
+                ", dateEnd=" + dateEnd +
+                ", adress='" + adress + '\'' +
+                ", timeControl='" + timeControl + '\'' +
+                '}';
     }
 }

@@ -10,6 +10,7 @@
         <property name="dateStart" column="DATE_START"/>
         <property name="dateEnd" column="DATE_END"/>
         <property name="adress" column="ADRESS"/>
+        <property name="timeControl" column="TIME_CONTROL"/>
         <many-to-one name="city" column="ID_CITY"/>
     </class>
 </hibernate-mapping>
