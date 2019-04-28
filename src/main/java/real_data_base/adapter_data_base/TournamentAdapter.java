@@ -29,4 +29,12 @@ public class TournamentAdapter {
         List<TournamentEntity> tournamentEntities = session.createQuery(sql).list();
         return tournamentEntities;
     }
+    public static List<TournamentEntity> getId(int id) {
+        String sql = "From " + TournamentEntity.class.getSimpleName();
+        List<TournamentEntity> tournamentEntities = session.createQuery(sql).list();
+        tournamentEntities.get(id);
+        return tournamentEntities;
+    }
+
+
 }

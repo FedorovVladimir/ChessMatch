@@ -28,9 +28,9 @@ public class ControllerIndex {
         m.addAttribute("tournaments", TournamentAdapter.getAll());
         return "tournaments";
     }
-    @GetMapping("/tournaments/info")
-    public String info(Model m) {
-        m.addAttribute("info", TournamentAdapter.getAll());
+    @GetMapping("/tournaments/info/{id}")
+    public String info(@PathVariable int id, Model m) {
+        m.addAttribute("tournaments", TournamentAdapter.getAll());
         return "info";
     }
 
