@@ -15,7 +15,7 @@ public class ControllerIndex {
     private DataBase db = new EmptyDataBase();
     private DataBase dbTournaments = new EmptyDataBase();
 
-    @GetMapping("/result")
+    @GetMapping("/tournaments/info/{id}/result")
     public String result(Model p) {
         p.addAttribute("players", db.getMatches());
         return "result";

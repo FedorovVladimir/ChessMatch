@@ -1,4 +1,5 @@
-<head id="head">
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head id="head" xmlns:th="http://www.w3.org/1999/xhtml">
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -26,6 +27,58 @@
         </ul>
     </div>
 </nav>
+
+<div id="infoTournament" class="row">
+    <div class="col-md-4 order-md-2 mb-4">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+            <span class="text-muted">Информация о турнире</span>
+        </h4>
+        <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between bg-light">
+                <div>
+                    <h6 class="my-0">Название</h6>
+                    <span class="text-muted" th:text="${t.name}"></span>
+                </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between bg-light">
+                <div>
+                    <h6 class="my-0">Дата начала</h6>
+                    <span class="text-muted" th:text="${t.dateStart}"></span>
+                </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between bg-light">
+                <div>
+                    <h6 class="my-0">Дата окончания</h6>
+                    <span class="text-muted" th:text="${t.dateEnd}"></span>
+                </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between bg-light">
+                <div class="text-success">
+                    <h6 class="my-0">Контроль времени</h6>
+                    <span class="text-muted" th:text="${t.timeControl}"></span>
+                </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between bg-light">
+                <div>
+                    <h6 class="my-0">Адрес проведения</h6>
+                    <span class="text-muted" th:text="${t.adress}"></span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<ul id="tabs" class="nav nav-tabs">
+    <li class="nav-item">
+        <a class="nav-link active" href="#">Стартовый лист</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Жеребьевка</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" th:href="@{/tournaments/info/result}">Результаты</a>
+    </li>
+</ul>
 
 <div id="libs">
     <!-- Optional JavaScript -->
