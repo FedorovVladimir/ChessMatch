@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head th:replace="wrapper :: #head"></head>
-<body>
-<div th:replace="wrapper :: #nav"></div>
-
-
-</body>
+ <body>
+    <div th:replace="wrapper :: #nav"></div>
+    <div th:each="t : ${info}">
+      <h1 th:text="${t.id}"></h1>
+    </div>
+ </body>
 </html>
