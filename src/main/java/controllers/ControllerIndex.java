@@ -28,6 +28,11 @@ public class ControllerIndex {
         m.addAttribute("tournaments", TournamentAdapter.getAll());
         return "tournaments";
     }
+    @GetMapping("/tournaments/info")
+    public String info(Model m) {
+        m.addAttribute("tournaments", TournamentAdapter.getAll());
+        return "tournaments";
+    }
 
     @GetMapping("/tournaments/add")
     public String tournamentsAdd(Model m) {
