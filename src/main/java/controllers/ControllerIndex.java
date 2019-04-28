@@ -30,8 +30,8 @@ public class ControllerIndex {
     }
     @GetMapping("/tournaments/info")
     public String info(Model m) {
-        m.addAttribute("tournaments", TournamentAdapter.getAll());
-        return "tournaments";
+        m.addAttribute("info", TournamentAdapter.getAll());
+        return "info";
     }
 
     @GetMapping("/tournaments/add")

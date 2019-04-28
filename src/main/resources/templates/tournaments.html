@@ -26,7 +26,7 @@
                 <tbody>
                     <div th:each="t : ${tournaments}">
                         <tr>
-                            <td th:text="${t.name}" onclick="window.location.href='/info'; return false"> </td>
+                            <td th:text="${t.name}" onclick="window.location.href='/tournaments/info'; return false"> </td>
                             <td th:text="${t.city.name}"></td>
                             <td th:text="${t.dateStart}"></td>
                             <td th:text="${t.dateEnd}"></td>
