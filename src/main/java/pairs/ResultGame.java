@@ -1,5 +1,4 @@
 package pairs;
-
 public enum ResultGame{
     WHITE_WINS,
     BLACK_WINS,
@@ -9,4 +8,3 @@ public enum ResultGame{
     MINUS_MINUS,
     ZERO_ZERO
 }
-

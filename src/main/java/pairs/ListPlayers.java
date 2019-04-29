@@ -13,10 +13,6 @@ public class ListPlayers {
         return listHuman.get(i);
     }
 
-    public void disablePlayer(int i) {
-        listHuman.get(i).setActive(false);
-    }
-
     public int size() {
         return listHuman.size();
     }
@@ -27,7 +23,7 @@ public class ListPlayers {
 
     public void print() {
         for (Human h: listHuman) {
-            System.out.println(h + " " + h.getPoint());
+            System.out.println(h);
         }
     }
 }
