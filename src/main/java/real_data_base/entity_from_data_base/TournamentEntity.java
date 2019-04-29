@@ -14,6 +14,34 @@ public class TournamentEntity {
     private String adress;
     private String timeControl;
     private CityEntity city;
+    private SystemMatchEntity systemMatch;
+    private RegionEntity region;
+
+    public SystemMatchEntity getSystemMatch() {
+        return systemMatch;
+    }
+
+    public void setSystemMatch(SystemMatchEntity systemMatch) {
+        this.systemMatch = systemMatch;
+    }
+
+    public RegionEntity getRegion() {
+        return region;
+    }
+
+    public void setRegion(RegionEntity region) {
+        this.region = region;
+    }
+
+    public CityEntity getIndicator() {
+        return indicator;
+    }
+
+    public void setIndicator(CityEntity indicator) {
+        this.indicator = indicator;
+    }
+
+    private CityEntity indicator;
 
     @Id
     @Column(name = "ID")

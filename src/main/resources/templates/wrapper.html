@@ -42,6 +42,18 @@
             </li>
             <li class="list-group-item d-flex justify-content-between bg-light">
                 <div>
+                    <h6 class="my-0">Субьект</h6>
+                    <span class="text-muted" th:text="${t.region.name}"></span>
+                </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between bg-light">
+                <div>
+                    <h6 class="my-0">Город</h6>
+                    <span class="text-muted" th:text="${t.city.name}"></span>
+                </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between bg-light">
+                <div>
                     <h6 class="my-0">Дата начала</h6>
                     <span class="text-muted" th:text="${t.dateStart}"></span>
                 </div>
@@ -56,6 +68,12 @@
                 <div class="text-success">
                     <h6 class="my-0">Контроль времени</h6>
                     <span class="text-muted" th:text="${t.timeControl}"></span>
+                </div>
+            </li>
+            <li class="list-group-item d-flex justify-content-between bg-light">
+                <div>
+                    <h6 class="my-0">Доп. показатели</h6>
+                    <span class="text-muted" th:text="${t.indicator.name}"></span>
                 </div>
             </li>
             <li class="list-group-item d-flex justify-content-between bg-light">
@@ -76,7 +94,7 @@
         <a class="nav-link" href="#">Жеребьевка</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" th:href="@{/tournaments/info/result}">Результаты</a>
+        <a class="nav-link" th:href="@{/tournaments/info/result/{id}(id=${t.id})}">Результаты</a>
     </li>
 </ul>
 

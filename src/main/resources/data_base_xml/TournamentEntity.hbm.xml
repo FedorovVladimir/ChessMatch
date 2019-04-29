@@ -12,5 +12,8 @@
         <property name="adress" column="ADRESS"/>
         <property name="timeControl" column="TIME_CONTROL"/>
         <many-to-one name="city" column="ID_CITY"/>
+        <many-to-one name="systemMatch" column="ID_SYSTEM_MATCH"/>
+        <many-to-one name="region" column="ID_REGION"/>
+        <many-to-one name="indicator" column="ID_INDICATOR"/>
     </class>
 </hibernate-mapping>

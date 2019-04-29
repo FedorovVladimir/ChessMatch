@@ -15,10 +15,15 @@ public class ControllerIndex {
     private DataBase db = new EmptyDataBase();
     private DataBase dbTournaments = new EmptyDataBase();
 
-    @GetMapping("/tournaments/info/{id}/result")
+    @GetMapping("/tournaments/info/result/{id}")
     public String result(Model p) {
         p.addAttribute("players", db.getMatches());
         return "result";
+    }
+    @GetMapping("/tournaments/edit/{id}")
+    public String edit(@PathVariable int id, Model m) {
+        m.addAttribute("edit", TournamentAdapter.getId(id));
+        return "edit";
     }
 
     @GetMapping("/tournaments")
