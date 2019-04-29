@@ -3,6 +3,8 @@ package pairs;
 import javafo.api.JaVaFoApi;
 import org.junit.Test;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -15,31 +17,67 @@ public class TournamentTest {
     }
 
     @Test
-    public void createTour() {
-        ListPlayers ls= new ListPlayers();
-//        ls.addPlayer(new Human("1", "Efanov", 2150));
-//        ls.addPlayer(new Human("2", "gasgg", 1900));
-//        ls.addPlayer(new Human("2", "gsaggg", 2222));
-//        ls.addPlayer(new Human("3", "gsaghh", 2095));
-//        ls.addPlayer(new Human("4", "Efanov", 2192));
-//        ls.addPlayer(new Human("5", "Efanov", 1956));
-//        ls.addPlayer(new Human("6", "Efanov", 1896));
-//        ls.addPlayer(new Human("7", "Efanov", 2450));
-//        ls.addPlayer(new Human("8", "Efanov", 2000));
-//        ls.addPlayer(new Human("9", "Efanov", 1967));
-//        ls.addPlayer(new Human("10", "Efanov", 1822));
-//        ls.addPlayer(new Human("11", "Efanov", 2098));
-//        ls.addPlayer(new Human("12", "Efanov", 2014));
-//        ls.addPlayer(new Human("13", "Efanov", 2192));
-//        ls.addPlayer(new Human("14", "Efanov", 2177));
-//        ls.addPlayer(new Human("15", "Efanov", 2000));
-//        ls.addPlayer(new Human("16", "Efanov", 1989));
-//        ls.addPlayer(new Human("17", "Efanov", 2044));
-//        ls.addPlayer(new Human("18", "Efanov", 2234));
-//        ls.addPlayer(new Human("19", "Efanov", 2008));
-//        ls.addPlayer(new Human("20", "Efanov", 1992));
-//        ls.addPlayer(new Human("21", "Efanov", 2001));
-//        Tournament tournament = new Tournament();
+    public void createTour() throws FileNotFoundException {
+        ListPlayers ls = new ListPlayers();
+        ls.addPlayer(new Human("Vitaly", "Boiarintsev", 2427));
+        ls.getPlayer(0).setRegion("RUS");
+        ls.getPlayer(0).setId(34128384);
+        ls.getPlayer(0).setBirthDate(1982);
+        ls.getPlayer(0).setTitle("FM");
+        ls.addPlayer(new Human("Alexandr", "Piskunov", 2409));
+        ls.getPlayer(1).setRegion("RUS");
+        ls.getPlayer(1).setId(4115490);
+        ls.getPlayer(1).setBirthDate(1994);
+        ls.addPlayer(new Human("Kardashevskiy","Evgeny" , 2310));
+        ls.getPlayer(2).setRegion("RUS");
+        ls.getPlayer(2).setId(24112593);
+        ls.getPlayer(2).setBirthDate(1994);
+        ls.addPlayer(new Human("Gaydym","Michail", 2299));
+        ls.getPlayer(3).setRegion("RUS");
+        ls.getPlayer(3).setId(24108138);
+        ls.getPlayer(3).setBirthDate(1994);
+        ls.addPlayer(new Human("Efanov","Mikhail", 2222));
+        ls.getPlayer(4).setRegion("RUS");
+        ls.getPlayer(4).setId(24180211);
+        ls.getPlayer(4).setBirthDate(1994);
+        ls.addPlayer(new Human("Kuprin","Vladimir", 2157));
+        ls.getPlayer(5).setRegion("RUS");
+        ls.getPlayer(5).setId(24159620);
+        ls.getPlayer(5).setBirthDate(1994);
+        ls.addPlayer(new Human("Razgovorov","Yurii", 2107));
+        ls.getPlayer(6).setRegion("RUS");
+        ls.getPlayer(6).setId(4155440);
+        ls.getPlayer(6).setBirthDate(1994);
+        ls.addPlayer(new Human("Reutov","Anton", 2127));
+        ls.getPlayer(7).setRegion("RUS");
+        ls.getPlayer(7).setId(34101583);
+        ls.getPlayer(7).setBirthDate(1994);
+        ls.addPlayer(new Human("Kazantsev","Alexander", 2079));
+        ls.getPlayer(8).setRegion("RUS");
+        ls.getPlayer(8).setId(24160903);
+        ls.getPlayer(8).setBirthDate(1994);
+        ls.addPlayer(new Human("Radionov","Timur", 2040));
+        ls.getPlayer(9).setRegion("RUS");
+        ls.getPlayer(9).setId(34135755);
+        ls.getPlayer(9).setBirthDate(1994);
+        ls.addPlayer(new Human("Zakharova","Viktoriya", 1994));
+        ls.getPlayer(10).setRegion("RUS");
+        ls.getPlayer(10).setId(34178772);
+        ls.getPlayer(10).setBirthDate(1994);
+        ls.addPlayer(new Human("Vasiliev","Maxim", 2016));
+        ls.getPlayer(11).setRegion("RUS");
+        ls.getPlayer(11).setId(24183890);
+        ls.getPlayer(11).setBirthDate(1994);
+        ls.addPlayer(new Human("Skorikov","Dmitry", 2017));
+        ls.getPlayer(12).setRegion("RUS");
+        ls.getPlayer(12).setId(24183210);
+        ls.getPlayer(12).setBirthDate(1994);
+
+
+
+
+
+        Tournament tournament = new Tournament();
 //        tournament.listPlayers = ls;
 //        ls.sort();
 //        tournament.createTour();
@@ -56,6 +94,23 @@ public class TournamentTest {
 //        System.out.println();
 //        ls.sort();
 //        ls.print();
+        tournament.setNameOfTurnament("XII SDS - Classic ");
+        tournament.setLocation("Gelendzhik");
+        tournament.setRegion("RUS");
+        tournament.setStartDate("2016/06/28");
+        tournament.setEndDate("2016/06/28");
+        tournament.setCountOfPlayers(28);
+        tournament.setCountOfPlayersWithRating(27);
+        tournament.setConductionSystem("Swiss System");
+        tournament.setMainArbiter("24148296 Sakhvadze Georgy");
+        tournament.setTimeSystem("Standard: 90 minutes with 30 second increment from move 1");
+        tournament.setCountOfTour(9);
+        ls.sort();
+        tournament.setListPlayers(ls);
+        tournament.createFileTurnament();
+
+        System.out.println(JaVaFoApi.exec(1000,1,new FileInputStream("/home/vemce/IdeaProjects/ChessMatch/XII SDS - Classic .trf")));
+
 
 
 

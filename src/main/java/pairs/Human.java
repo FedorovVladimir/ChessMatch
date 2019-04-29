@@ -15,6 +15,44 @@ public class Human implements Comparable<Human> {
     private String title;
     private String titleRus;
     private String region;
+    private int id;
+    private int numberStart;
+    private int numberCurrent;
+
+    public int getBirthDate() {
+        return birthDate;
+    }
+
+    public void setBirthDate(int birthDate) {
+        this.birthDate = birthDate;
+    }
+
+    private int birthDate;
+
+
+    public int getNumberStart() {
+        return numberStart;
+    }
+
+    public void setNumberStart(int numberStart) {
+        this.numberStart = numberStart;
+    }
+
+    public int getNumberCurrent() {
+        return numberCurrent;
+    }
+
+    public void setNumberCurrent(int numberCurrent) {
+        this.numberCurrent = numberCurrent;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public boolean isSex() {
         return sex;
@@ -100,12 +138,90 @@ public class Human implements Comparable<Human> {
 
     @Override
     public int compareTo(Human human) {
-//        if (human.getRating() > this.getRating()) {
-//            return 1;
-//        }
-//        if (human.getRating() < this.getRating()) {
-//            return -1;
-//        }
+        if (human.getRatingWorld() > this.getRatingWorld()) {
+            return 1;
+        }
+        if (human.getRatingWorld() < this.getRatingWorld()) {
+            return -1;
+        }
         return human.getSecondName().compareTo(this.getSecondName());
+    }
+
+    public String convetToFile() {
+        String humanInfo = "001";
+        if (numberStart / 10 == 0) {
+            humanInfo += "    " + numberStart;
+        }
+        else if (numberStart / 100 == 0) {
+            humanInfo += "   " + numberStart;
+        }
+        else {
+            humanInfo += "  " + numberStart;
+        }
+        if (sex == false) {
+            humanInfo += " m";
+        }
+        else {
+            humanInfo += " f";
+        }
+        if (title != null) {
+            humanInfo += title;
+            for (int i = 0; i < 4 - title.length(); i++) {
+                humanInfo += " ";
+            }
+        }
+        else {
+            humanInfo += "    ";
+        }
+        String finalName = firstName + ',' +secondName;
+        if (finalName.length() > 33) {
+            finalName = finalName.substring(0,33);
+        }
+        humanInfo += finalName;
+        for (int i = 0; i < 34 - finalName.length(); i++) {
+            humanInfo += " ";
+        }
+        if (ratingWorld != 0) {
+            humanInfo += ratingWorld + " ";
+        }
+        else {
+            humanInfo += "0000 ";
+        }
+
+        if (region.length() > 3) {
+            humanInfo += region.substring(0,3) + "    ";
+        }
+        else {
+            humanInfo += region + "    ";
+        }
+        int localId = id;
+        String strId = "";
+        for (int i = localId; i > 0; i /= 10) {
+            strId += i % 10;
+        }
+        for (int i = 0; i < 8 - strId.length(); i++) {
+            strId += " ";
+        }
+        humanInfo += new StringBuilder(strId).reverse().toString() + " ";
+        if (birthDate != 0) {
+            humanInfo += birthDate + "  ";
+        }
+        else {
+            humanInfo += "      ";
+        }
+
+        humanInfo += "0.0";
+
+        if (numberStart / 10 == 0) {
+            humanInfo += "    " + numberStart;
+        }
+        else if (numberStart / 100 == 0) {
+            humanInfo += "   " + numberStart;
+        }
+        else {
+            humanInfo += "  " + numberStart;
+        }
+        humanInfo += '\n';
+        return humanInfo;
     }
 }

@@ -19,6 +19,6 @@ public class ListOfPlayersTest {
                 return 0;
             }
         };
-        System.out.println(JaVaFoApi.exec(1210,2,new FileInputStream("/home/vemce/IdeaProjects/ChessMatch/TRF.trf")));
+        System.out.println(JaVaFoApi.exec(1210,5,new FileInputStream("/home/vemce/IdeaProjects/ChessMatch/TRF.trf")));
     }
 }

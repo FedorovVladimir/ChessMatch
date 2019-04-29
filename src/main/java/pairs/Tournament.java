@@ -2,6 +2,8 @@ package pairs;
 
 import javafo.api.JaVaFoApi;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,6 +15,10 @@ public class Tournament {
     private String endDate;
     private int countOfPlayers;
     private int countOfPlayersWithRating;
+    private String conductionSystem;
+    private String mainArbiter;
+    private String timeSystem;
+    private int countOfTour;
 
     public String getNameOfTurnament() {
         return nameOfTurnament;
@@ -110,16 +116,37 @@ public class Tournament {
         this.listPlayers = listPlayers;
     }
 
-    private String conductionSystem;
-    private String mainArbiter;
-    private String timeSystem;
-    private int countOfTour;
+
 
     List<Tour> listTour = new ArrayList<>();
 
     ListPlayers listPlayers;
 
+    public void createFileTurnament() {
+        try(FileWriter writer = new FileWriter(nameOfTurnament + ".trf", false))
+        {
+            String text = "";
+            text += "012 " + nameOfTurnament + '\n';
+            text += "022 " + location + '\n';
+            text += "032 " + region + '\n';
+            text += "042 " + startDate + '\n';
+            text += "052 " + endDate + '\n';
+            text += "062 " + countOfPlayers + '\n';
+            text += "072 " + countOfPlayersWithRating + '\n';
+            text += "092 " + conductionSystem + '\n';
+            text += "102 " + mainArbiter + '\n';
+            text += "122 " + timeSystem + '\n';
+            text += "132                                                                                      " + '\n';
+            text += "XXR " + countOfTour + '\n';
+            text += "XXC white1"  + '\n';
+            text += listPlayers.convertToFile();
+            writer.write(text);
+            writer.flush();
+        }
+        catch(IOException ex){
+        }
 
+    }
 
     public void createTour() {
         Tour new_t = new Tour();

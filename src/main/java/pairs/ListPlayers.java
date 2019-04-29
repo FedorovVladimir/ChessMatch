@@ -19,6 +19,17 @@ public class ListPlayers {
 
     public void sort() {
         Collections.sort(listHuman);
+        for (int i = 0; i < listHuman.size(); i++) {
+            listHuman.get(i).setNumberStart(i + 1);
+        }
+    }
+
+    public String convertToFile () {
+        String finalString = "";
+        for (Human h : listHuman) {
+            finalString += h.convetToFile();
+        }
+        return finalString;
     }
 
     public void print() {
