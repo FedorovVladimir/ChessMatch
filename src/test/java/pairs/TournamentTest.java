@@ -3,10 +3,8 @@ package pairs;
 import javafo.api.JaVaFoApi;
 import org.junit.Test;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
+import java.util.Properties;
 
 import static org.junit.Assert.*;
 
@@ -17,7 +15,7 @@ public class TournamentTest {
     }
 
     @Test
-    public void createTour() throws FileNotFoundException {
+    public void createTour() throws IOException {
         ListPlayers ls = new ListPlayers();
         ls.addPlayer(new Human("Vitaly", "Boiarintsev", 2427));
         ls.getPlayer(0).setRegion("RUS");
@@ -53,23 +51,23 @@ public class TournamentTest {
         ls.getPlayer(7).setId(34101583);
         ls.getPlayer(7).setBirthDate(1994);
         ls.addPlayer(new Human("Kazantsev","Alexander", 2079));
-        ls.getPlayer(8).setRegion("RUS");
-        ls.getPlayer(8).setId(24160903);
-        ls.getPlayer(8).setBirthDate(1994);
+//        ls.getPlayer(8).setRegion("RUS");
+//        ls.getPlayer(8).setId(24160903);
+//        ls.getPlayer(8).setBirthDate(1994);
         ls.addPlayer(new Human("Radionov","Timur", 2040));
         ls.getPlayer(9).setRegion("RUS");
         ls.getPlayer(9).setId(34135755);
-        ls.getPlayer(9).setBirthDate(1994);
-        ls.addPlayer(new Human("Zakharova","Viktoriya", 1994));
+        //ls.getPlayer(9).setBirthDate(1994);
+        ls.addPlayer(new Human("Zakharova","Viktoriya", 0));
         ls.getPlayer(10).setRegion("RUS");
         ls.getPlayer(10).setId(34178772);
         ls.getPlayer(10).setBirthDate(1994);
         ls.addPlayer(new Human("Vasiliev","Maxim", 2016));
         ls.getPlayer(11).setRegion("RUS");
-        ls.getPlayer(11).setId(24183890);
+        ls.getPlayer(11).setId(0);
         ls.getPlayer(11).setBirthDate(1994);
         ls.addPlayer(new Human("Skorikov","Dmitry", 2017));
-        ls.getPlayer(12).setRegion("RUS");
+        //ls.getPlayer(12).setRegion("RUS");
         ls.getPlayer(12).setId(24183210);
         ls.getPlayer(12).setBirthDate(1994);
 
@@ -78,9 +76,9 @@ public class TournamentTest {
 
 
         Tournament tournament = new Tournament();
-//        tournament.listPlayers = ls;
-//        ls.sort();
-//        tournament.createTour();
+        tournament.listPlayers = ls;
+        ls.sort();
+        //tournament.createTour(2);
 //        for (Game g : tournament.getTour(0).listGame) {
 //            g.setResult(ResultGame.BLACK_WINS);
 //        }
@@ -107,9 +105,13 @@ public class TournamentTest {
         tournament.setCountOfTour(9);
         ls.sort();
         tournament.setListPlayers(ls);
-        tournament.createFileTurnament();
+        tournament.createFileTournament();
+        tournament.createRandomTournament(50,9,8);
 
-        System.out.println(JaVaFoApi.exec(1000,1,new FileInputStream("/home/vemce/IdeaProjects/ChessMatch/XII SDS - Classic .trf")));
+
+
+
+        System.out.println(JaVaFoApi.exec(1000,new FileInputStream("test.trf")));
 
 
 

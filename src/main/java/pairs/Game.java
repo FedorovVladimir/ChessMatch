@@ -5,6 +5,24 @@ public class Game {
     private Human black;
     private ResultGame resultGame;
     private int numberOfDesk;
+    private int numberOfTour;
+
+    public ResultGame getResultGame() {
+        return resultGame;
+    }
+
+    public void setResultGame(ResultGame resultGame) {
+        this.resultGame = resultGame;
+    }
+
+    public int getNumberOfTour() {
+        return numberOfTour;
+    }
+
+    public void setNumberOfTour(int numberOfTour) {
+        this.numberOfTour = numberOfTour;
+    }
+
     public void setBlack(Human black) {
         this.black = black;
     }

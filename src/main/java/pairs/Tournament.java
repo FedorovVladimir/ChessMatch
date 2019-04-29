@@ -2,10 +2,10 @@ package pairs;
 
 import javafo.api.JaVaFoApi;
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class Tournament {
     private String nameOfTurnament;
@@ -19,6 +19,8 @@ public class Tournament {
     private String mainArbiter;
     private String timeSystem;
     private int countOfTour;
+    List<Tour> listTour = new ArrayList<>();
+    ListPlayers listPlayers;
 
     public String getNameOfTurnament() {
         return nameOfTurnament;
@@ -117,12 +119,7 @@ public class Tournament {
     }
 
 
-
-    List<Tour> listTour = new ArrayList<>();
-
-    ListPlayers listPlayers;
-
-    public void createFileTurnament() {
+    public void createFileTournament() {
         try(FileWriter writer = new FileWriter(nameOfTurnament + ".trf", false))
         {
             String text = "";
@@ -143,16 +140,35 @@ public class Tournament {
             writer.write(text);
             writer.flush();
         }
-        catch(IOException ex){
-        }
-
+        catch(IOException ex){}
     }
 
-    public void createTour() {
+    public void createTour(int indexTour) {
         Tour new_t = new Tour();
-        new_t.setListPlayers(listPlayers);
-        new_t.makeTour(listTour.size() + 1);
+
         listTour.add(new_t);
+    }
+
+    public void createRandomTournament(int countPlayers, int countTour, int countFinallyTour) throws IOException {
+        Properties cfg = new Properties();
+        cfg.setProperty("PlayersNumber", String.valueOf(countPlayers));
+        cfg.setProperty("RoundsNumber", String.valueOf(countFinallyTour));
+        JaVaFoApi.exec(1300, cfg, new FileOutputStream("test.trf"));
+        FileInputStream fstream = new FileInputStream("test.trf");
+        BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+        String str;
+        List <String> strLine = new ArrayList<>();
+        while ((str = br.readLine()) != null){
+            strLine.add(str);
+        }
+        strLine.add(12,"XXR " + countTour);
+
+        try(FileWriter writer = new FileWriter("test" + ".trf", false))
+        {
+            for (String st : strLine)
+                writer.write(st + '\n');
+        }
+        catch(IOException ex){}
     }
 
 }

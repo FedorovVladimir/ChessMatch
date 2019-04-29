@@ -188,7 +188,10 @@ public class Human implements Comparable<Human> {
             humanInfo += "0000 ";
         }
 
-        if (region.length() > 3) {
+        if (region == null) {
+            humanInfo += "   " + "    ";
+        }
+        else if (region.length() > 3) {
             humanInfo += region.substring(0,3) + "    ";
         }
         else {
@@ -199,10 +202,15 @@ public class Human implements Comparable<Human> {
         for (int i = localId; i > 0; i /= 10) {
             strId += i % 10;
         }
-        for (int i = 0; i < 8 - strId.length(); i++) {
+        for (int i = 0, len = strId.length(); i < 8 - len; i++) {
             strId += " ";
         }
-        humanInfo += new StringBuilder(strId).reverse().toString() + " ";
+        if (strId.length() > 0) {
+            humanInfo += new StringBuilder(strId).reverse().toString() + " ";
+        }
+        else {
+            humanInfo += strId + " ";
+        }
         if (birthDate != 0) {
             humanInfo += birthDate + "  ";
         }
