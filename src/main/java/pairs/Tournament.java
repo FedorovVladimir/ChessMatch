@@ -156,6 +156,7 @@ public class Tournament {
                     i, listTour.size() + 1));
         }
         listTour.add(new_t);
+        new_t.random();
         new_t.print();
     }
 

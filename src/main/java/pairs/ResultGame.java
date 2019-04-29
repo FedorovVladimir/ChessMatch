@@ -17,7 +17,7 @@ public enum ResultGame{
 
     private static final List<ResultGame> VALUES =
             Collections.unmodifiableList(Arrays.asList(values()));
-    private static final int SIZE = VALUES.size();
+    private static final int SIZE = VALUES.size() - 5;
     private static final Random RANDOM = new Random();
 
     public static ResultGame randomResult()  {
