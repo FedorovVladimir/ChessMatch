@@ -12,7 +12,8 @@ public enum ResultGame{
     MINUS_PLUS,
     PLUS_MINUS,
     MINUS_MINUS,
-    ZERO_ZERO;
+    ZERO_ZERO,
+    PLUS;
 
     private static final List<ResultGame> VALUES =
             Collections.unmodifiableList(Arrays.asList(values()));

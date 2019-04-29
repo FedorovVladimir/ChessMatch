@@ -29,7 +29,6 @@ public class Tour {
         }
     }
 
-
     public void print() {
         for (Game g: listGame) {
             System.out.println(g);

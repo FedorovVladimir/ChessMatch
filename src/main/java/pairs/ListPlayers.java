@@ -1,6 +1,10 @@
 package pairs;
 
 import javax.management.ObjectName;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.*;
 
 public class ListPlayers {
@@ -30,6 +34,20 @@ public class ListPlayers {
             finalString += h.convetToFile();
         }
         return finalString;
+    }
+
+    public ListPlayers readFromFile(String file) throws IOException {
+        FileInputStream fstream = new FileInputStream("test.trf");
+        BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+        String str;
+        List <String> strLine = new ArrayList<>();
+        while ((str = br.readLine()) != null){
+            String[] lex = str.split("\\s+");
+            if (lex[0].equals("001")) {
+                addPlayer(new Human(lex[2], lex[3],Integer.valueOf(lex[4])));
+            }
+        }
+        return this;
     }
 
     public void print() {

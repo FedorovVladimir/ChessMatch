@@ -68,6 +68,12 @@ public class Game {
         this.black = black;
         this.numberOfDesk = numberOfDesk;
     }
+    public Game(Human white, Human black, int numberOfDesk, int numberOfTour) {
+        this.white = white;
+        this.black = black;
+        this.numberOfDesk = numberOfDesk;
+        this.numberOfTour = numberOfTour;
+    }
 
     @Override
     public String toString() {

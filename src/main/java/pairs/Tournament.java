@@ -143,10 +143,20 @@ public class Tournament {
         catch(IOException ex){}
     }
 
-    public void createTour(int indexTour) {
+    public void createTour() throws FileNotFoundException {
         Tour new_t = new Tour();
-
+        String pairs = JaVaFoApi.exec(1000,new FileInputStream("test.trf"));
+        System.out.println(pairs);
+        String[] pair = pairs.split("\n");
+        for (int i = 1; i < pair.length - 1; i++) {
+            String[] s = pair[i].split(" ");
+            new_t.addGame(new Game(
+                    listPlayers.getPlayer(Integer.valueOf(s[0]) - 1),
+                    listPlayers.getPlayer(Integer.valueOf(s[1]) - 1),
+                    i, listTour.size() + 1));
+        }
         listTour.add(new_t);
+        new_t.print();
     }
 
     public void createRandomTournament(int countPlayers, int countTour, int countFinallyTour) throws IOException {
@@ -154,6 +164,7 @@ public class Tournament {
         cfg.setProperty("PlayersNumber", String.valueOf(countPlayers));
         cfg.setProperty("RoundsNumber", String.valueOf(countFinallyTour));
         JaVaFoApi.exec(1300, cfg, new FileOutputStream("test.trf"));
+
         FileInputStream fstream = new FileInputStream("test.trf");
         BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
         String str;
