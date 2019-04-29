@@ -108,9 +108,6 @@ public class TournamentTest {
         tournament.createFileTournament();
         tournament.createRandomTournament(50,9,8);
 
-
-
-
         System.out.println(JaVaFoApi.exec(1000,new FileInputStream("test.trf")));
 
 

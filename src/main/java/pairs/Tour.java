@@ -23,6 +23,12 @@ public class Tour {
         this.listGame.add(game);
     }
 
+    public void random() {
+        for (Game g: listGame) {
+            g.setResult(ResultGame.randomResult());
+        }
+    }
+
 
     public void print() {
         for (Game g: listGame) {
