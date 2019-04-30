@@ -75,6 +75,13 @@ public class Game {
         this.numberOfTour = numberOfTour;
     }
 
+    public Game indexOf(int start) {
+        if (white.getNumberStart() == start || black.getNumberStart() == start) {
+            return this;
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         return "Desk " +

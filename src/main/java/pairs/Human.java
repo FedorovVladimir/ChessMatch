@@ -135,6 +135,12 @@ public class Human implements Comparable<Human> {
         this.secondName = secondName;
         this.ratingWorld = rating;
     }
+    public Human(String firstName, String secondName, int rating, int numberStart) {
+        this.firstName = firstName;
+        this.secondName = secondName;
+        this.ratingWorld = rating;
+        this.numberStart = numberStart;
+    }
 
     @Override
     public int compareTo(Human human) {

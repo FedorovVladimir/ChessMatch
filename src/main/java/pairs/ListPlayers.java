@@ -14,7 +14,7 @@ public class ListPlayers {
     }
 
     public Human getPlayer(int i) {
-        return listHuman.get(i);
+        return listHuman.get(i - 1);
     }
 
     public int size() {
@@ -40,11 +40,10 @@ public class ListPlayers {
         FileInputStream fstream = new FileInputStream("test.trf");
         BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
         String str;
-        List <String> strLine = new ArrayList<>();
         while ((str = br.readLine()) != null){
             String[] lex = str.split("\\s+");
             if (lex[0].equals("001")) {
-                addPlayer(new Human(lex[2], lex[3],Integer.valueOf(lex[4])));
+                addPlayer(new Human(lex[2], lex[3],Integer.valueOf(lex[4]),Integer.valueOf(lex[1])));
             }
         }
         return this;
